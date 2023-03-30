@@ -22,7 +22,7 @@ Readme File of web chat-sdk-main
    
 
 ```javascript
-this.socket.emit('join', {
+this.socket.emit('joinUser', {
       emailId: "mukesh.kumar@startelelogic.co.in",
       user_id: "",
       roomName: "",
@@ -61,7 +61,7 @@ this.socket.emit('sendMessage', {
       uuid: "",
       last_replied_time: "",
       replied_type: "",
-      replied_uuid: "",
+      replied_uuid: "-1",
       user_id: ""
 });
 ```
@@ -169,7 +169,7 @@ this.socket.emit('receivedMessage', {
    * @param { string } customer_uuid
    
 ```javascript
-this.socket.emit('customer_query', {
+this.socket.emit('widget_query', {
       customer_name: "",
       customer_mail: "",
       customer_uuid: ""
@@ -185,14 +185,33 @@ this.socket.emit('customer_query', {
    * @param { string } customer_uuid
    
 ```javascript
-this.socket.emit('agent_assign', {
+this.socket.emit('assign_agent', {
       agent_uuid: "",
       agent_email: "",
       agent_name: "",
       customer_email: "",
-      customer_uuid: ""
+      customer_uuid: "",
+      agent_extension: ""
 });
 ```
+
+### Step-8 : Listen event on socket at widget side  with emiting  agentAssigned by available agent
+
+   * @param { string } agent_uuid
+   * @param { string } agent_email
+   * @param { string } agent_name
+   * @param { string } agent_extension
+   * @param { string } customer_uuid
+
+
+### Step-9 : Listen event on socket at widget side  on listen agent_notify  emiting by available agent at widget end
+
+   * @param { string } customer_name
+   * @param { string } customer_uuid
+   * @param { string } agent_uuid
+   * @param { string } agent_mail
+   * @param { string } agent_name
+
 
 ### Step-2 : Show typing indicator  with typing emit event
    * @param { string } user_id - ID of user.
